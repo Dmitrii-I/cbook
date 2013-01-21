@@ -1,0 +1,208 @@
+\documentclass[a4paper, 10pt]{article}
+\usepackage{listings}
+\usepackage[margin=0.5in]{geometry}
+\usepackage[usenames,dvipsnames,svgnames,table]{xcolor}
+\setlength\parindent{0pt}
+\lstset{ %
+  language=C,                     % the language of the code
+  basicstyle=\small,       % the size of the fonts that are used for the code
+%  numbers=right,                   % where to put the line-numbers
+%  numberstyle=\tiny\color{gray},  % the style that is used for the line-numbers
+%  stepnumber=1,                   % the step between two line-numbers. If it's 1, each line 
+                                  % will be numbered
+%  numbersep=5pt,                  % how far the line-numbers are from the code
+  backgroundcolor=\color{white},  % choose the background color. You must add \usepackage{color}
+  showspaces=false,               % show spaces adding particular underscores
+  showstringspaces=false,         % underline spaces within strings
+  showtabs=false,                 % show tabs within strings adding particular underscores
+ % frame=single,                   % adds a frame around the code
+  rulecolor=\color{black},        % if not set, the frame-color may be changed on line-breaks within not-black text (e.g. comments (green here))
+  tabsize=2,                      % sets default tabsize to 2 spaces
+  captionpos=b,                   % sets the caption-position to bottom
+  breaklines=true,                % sets automatic line breaking
+  breakatwhitespace=false,        % sets if automatic breaks should only happen at whitespace
+%  title=\lstname,                 % show the filename of files included with \lstinputlisting;
+                                  % also try caption instead of title
+  keywordstyle=\color{black},     % keyword style
+  commentstyle=\color{black},      % comment style
+  stringstyle=\color{black},      % string literal style
+  escapeinside={\%*}{*)},         % if you want to add LaTeX within your code
+  morekeywords={*,...},           % if you want to add more keywords to the set
+  deletekeywords={...}            % if you want to delete keywords from the given language
+}
+\begin{document}
+
+%\lstinputlisting{../src/ch2/1.c}
+Exercise 1 \\
+
+If you compile using the \texttt{-Wall} option, the compiler may issue the warning:\\* 
+\texttt{warning: control reaches end of non-void function [-Wreturn-type]}. 
+
+Add \texttt{return 0;} as the last line of the main function to suppress the warning.
+
+\textbf{Exercise 2} 
+(a) \\
+Directives always begin with the \texttt{\#} character (p. 12). A statement is a command to be executed when the program runs (p. 14). Therefore:
+
+\lstinputlisting{../src/ch2/ex2a.c} 
+(b) \\
+The output produced by the program: \\
+
+\begin{lstlisting}
+Parkinson's Law:
+Work expnads so as to fill the time 
+available for its completion.
+\end{lstlisting}
+
+\textbf{Exercise 3} \\
+An initializer is a value in a statement that both delcares and initializes a variable. For example value \texttt{8} in \texttt{int height = 8;} is an initializer. \\
+
+Refactoring \texttt{dweight.c}:\\
+\lstinputlisting{../src/ch2/ex3.c}
+
+\textbf{Exerices 4} \\
+The program \\
+\lstinputlisting{../src/ch2/ex4.c} 
+is run 3 times. The first run outputs 
+\begin{lstlisting}
+Value of uninitialized int variable 1 is: -1077685332
+Value of uninitialized int variable 2 is: -1218538971
+Value of uninitialized int variable 3 is: -1216839056
+Value of uninitialized float variable 1 is: 0.000000
+Value of uninitialized float variable 2 is: 0.000000
+Value of uninitialized float variable 3 is: -0.000015
+\end{lstlisting}
+The second time the program outputs
+\begin{lstlisting}
+Value of uninitialized int variable 1 is: -1074131764
+Value of uninitialized int variable 2 is: -1218821595
+Value of uninitialized int variable 3 is: -1217121680
+Value of uninitialized float variable 1 is: 0.000000
+Value of uninitialized float variable 2 is: 0.000000
+Value of uninitialized float variable 3 is: -0.000014
+\end{lstlisting}
+And the third time it outputs
+\begin{lstlisting}
+Value of uninitialized int variable 1 is: -1081978644
+Value of uninitialized int variable 2 is: -1218534875
+Value of uninitialized int variable 3 is: -1216834960
+Value of uninitialized float variable 1 is: 0.000000
+Value of uninitialized float variable 2 is: 0.000000
+Value of uninitialized float variable 3 is: -0.000015
+\end{lstlisting}
+It seems that uninitialized integers are random, while there is a pattern in the uninitialized floats.\\
+
+\textbf{Exercise 5} \\
+Recall that valid identifiers may contain letters, digits, and underscores, but must begin with a letter or underscore (p. 25). \\
+
+In the set of identifiers \\
+\begin{lstlisting}
+(a) 100_bottles
+(b) _100_bottles
+(c) one_hundred_bottles
+(d) bottles_by_the_hundred_
+\end{lstlisting}
+the identifier (a) is not legal. \\
+
+\textbf{Exercise 6} \\
+Adjacent underscores are hard to count and may lead to mistyped variable names and cause annoyance with someone who reads the code. It is therefore not a good idea to use them in identifiers. \\
+
+\textbf{Exercise 7} \\
+In the list \\
+(a) \texttt{for} \\
+(b) \texttt{If} \\
+(c) \texttt{printf} \\
+(d) \texttt{while} \\
+the keywords are (a) and (d). The word (b) is not a valid keyword because it starts with a capital (C is case-sensitive). The word (c) is the name of the function defined in the standard library which is linked to by including the directive \texttt{\#include <stdio.h>}. \\
+
+\textbf{Exercise 8} \\
+A token is a group of characters that cannot be split without changing the meaning of the program (p. 27). The statement \texttt{answer=(3*q-p*p)/3;} contains 14 tokens:\\
+\texttt{answer ~~= ~~( ~~3 ~~* ~~q ~~- ~~p  ~~* ~~p ~~~) ~~/ ~~3 ~~;}\\
+\texttt{1 ~~~~~~~2 ~~3 ~~4 ~~5 ~~6 ~~7 ~~8  ~~9 ~~10 ~~11 ~12 ~13 ~14}\\ 
+
+\textbf{Exercise 9} \\
+With inserted spaces for easier reading, the statement may be written as \\
+\texttt{answer = (3 * q - p * p) / 3;}\\
+
+\textbf{Exercise 10} \\
+The essential spaces are those, which when left out, will not make the progam compile. In the \texttt{dweight.c}  program, there are only 3 essential spaces. The first one is between \texttt{int} and \texttt{main}, the second is between \texttt{int} and \texttt{height}, and the third one is between \texttt{return} and \texttt{0}. In general, the number of essential spaces equals the number of keywords in the program (except those enclosed in parentheses). \\
+
+\textbf{Project 1} \\
+\lstinputlisting{../src/ch2/prj1.c}
+
+\textbf{Project 2} \\
+\lstinputlisting{../src/ch2/prj2.c}
+
+The result of dividing an integer by an integer is an integer (the decimal part of the outcome is dropped). So \texttt{4 / 3} returns \texttt{1}. To return a floating point number, the values need to be casted to floating point number format in this way: \texttt{4.0f / 3.0f}.\\
+
+\textbf{Project 3} \\
+The function \texttt{scanf}, described in the next chapter, allows the user to enter keystrokes, which will be read after enter key is pressed.
+
+The program, utilzing this function:\\
+
+\lstinputlisting{../src/ch2/prj3.c} 
+
+\textbf{Project 4} \\
+
+\lstinputlisting{../src/ch2/prj4.c}
+
+\textbf{Project 5} \\
+
+\lstinputlisting{../src/ch2/prj5.c}
+ 
+\textbf{Project 6} \\
+
+\lstinputlisting{../src/ch2/prj6.c}
+ 
+\textbf{Project 7} \\
+
+For this project, we use the fact that \texttt{amount / x * x} does not necessarily equal \texttt{amount}. If \texttt{amount / x} results in a floating point number, but \texttt{amount} is integer, the decimal part will be dropped. Subsequent multiplication with \texttt{x} will not result in the original value of \texttt{amount}. \\
+
+\lstinputlisting{../src/ch2/prj7.c}
+
+\textbf{Project 8} \\
+
+\lstinputlisting{../src/ch2/prj8.c}
+
+\end{document}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
