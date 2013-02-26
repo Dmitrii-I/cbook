@@ -1,0 +1,183 @@
+\documentclass[a4paper, 10pt]{article}
+\usepackage{listings}
+\usepackage[margin=0.5in]{geometry}
+\usepackage[usenames,dvipsnames,svgnames,table]{xcolor}
+%\usepackage[T1]{fontenc}
+\setlength\parindent{0pt}
+\lstset{ %
+  language=C,                     % the language of the code
+  basicstyle=\small,       % the size of the fonts that are used for the code
+%  numbers=right,                   % where to put the line-numbers
+%  numberstyle=\tiny\color{gray},  % the style that is used for the line-numbers
+%  stepnumber=1,                   % the step between two line-numbers. If it's 1, each line 
+                                  % will be numbered
+%  numbersep=5pt,                  % how far the line-numbers are from the code
+  backgroundcolor=\color{white},  % choose the background color. You must add \usepackage{color}
+  showspaces=false,               % show spaces adding particular underscores
+  showstringspaces=false,         % underline spaces within strings
+  showtabs=false,                 % show tabs within strings adding particular underscores
+ % frame=single,                   % adds a frame around the code
+  rulecolor=\color{black},        % if not set, the frame-color may be changed on line-breaks within not-black text (e.g. comments (green here))
+  tabsize=2,                      % sets default tabsize to 2 spaces
+  captionpos=b,                   % sets the caption-position to bottom
+  breaklines=true,                % sets automatic line breaking
+  breakatwhitespace=false,        % sets if automatic breaks should only happen at whitespace
+%  title=\lstname,                 % show the filename of files included with \lstinputlisting;
+                                  % also try caption instead of title
+  keywordstyle=\color{black},     % keyword style
+  commentstyle=\color{black},      % comment style
+  stringstyle=\color{black},      % string literal style
+  escapeinside={\%*}{*)},         % if you want to add LaTeX within your code
+  morekeywords={*,...},           % if you want to add more keywords to the set
+  deletekeywords={...}            % if you want to delete keywords from the given language
+}
+\begin{document}
+
+{\LARGE CHAPTER 5} \\
+
+\textbf{Exercise 1} \\
+The produced output is: \\
+(a) \texttt{1} \\ 
+(b) \texttt{1} \\
+(c) \texttt{1} \\
+(d) \texttt{0} \\
+
+\textbf{Exercise 2} \\
+Yes, the expression always return the same value: either zero or a negative integer. In the expression \texttt{(-i)/j}, a negative integer is divided by positive integer resulting in a negative integer (or zero). In \texttt{-(i/j)} the result of the division is positive, which is then negated resulting in a negative integer (or zero). \\
+
+\textbf{Exercise 3} \\
+(Last bullet point on page 54 describes how C89 and C99 behave when the \texttt{/} and \texttt{\%} operators are used on negative operands.) 
+
+(a) 1 \\
+(b) -1 or -2 \\
+(c) -1 or -2 \\
+(d) 1 \\
+
+\textbf{Exercise 4} \\
+(a) 1 \\
+(b) -1 \\
+(c) -1 \\
+(d) 1 \\
+
+\textbf{Exercise 5} \\
+(a) 3 \\
+(b) -3 or 2 \\
+(c) -3 or 2 \\
+(d) -3 or 2 \\
+
+\textbf{Exercise 6} \\
+(a) 3 \\
+(b) -3 \\
+(c) 3 \\
+(d) -3 \\
+
+\textbf{Exercise 7} \\
+If the total is a multiple of 10, the answer of the simplified algorithm is different. \\
+
+\textbf{Exercise 8} \\
+No, because if the total is a multiple of 10, the check digit will be 10 (which is 2 digits). A check digit is allowed to contain only one digit: 0 through 9.\\
+
+\textbf{Exercise 9} \\
+(a) \texttt{63 8} \\
+(b) \texttt{3 2 1} \\
+(c) \texttt{2 -1 3} \\
+(d) \texttt{0 0 0} \\
+
+\textbf{Exercise 10} \\
+(a) \texttt{12 12} \\
+(b) \texttt{3 4} \\
+(c) \texttt{2 8} \\
+(d) \texttt{6 9} \\
+
+\textbf{Exercise 11} \\
+(a) \texttt{0 2} \\
+(b) \texttt{4 11 6} \\
+(c) \texttt{0 8 7} \\
+(d) \texttt{3 5 4 4} \\
+
+\textbf{Exercise 12} \\
+(a) \texttt{6 16} \\
+(b) \texttt{6 -7} \\
+(c) \texttt{6 23} \\
+(d) \texttt{6 15} \\ 
+
+\textbf{Exercise 13} \\
+The \texttt{++i} is the same as \texttt{(i += 1)}. The \texttt{i++} is different because when \texttt{--} or \texttt{++} is used as postfix operator, the operand gets incremented or decremented after the expression is evaluated (p. 68). \\
+
+As a double check, run the following program:
+\lstinputlisting{../src/ch4/ex13.c}
+which will return: \\
+\texttt{2 \\ 2 \\ 2} \\
+
+\textbf{Exercise 14} \\
+(a) \texttt{(((a * b) - (c * d)) + e)} \\
+(b) \texttt{(((a / b) \% c) / d)} \\
+(c) \texttt{((((- a) - b) + c) - (+ d))} \\
+(d) \texttt{(((a * (- b)) / c) - d)} \\
+
+\textbf{Exercise 15} \\
+(a) 3 and 2 \\
+(b) 0 and 2 \\
+(c) 1 and 2 \\
+(d) 1 and 3 \\
+
+\textbf{Project 1} \\
+\lstinputlisting{../src/ch4/prj1.c}
+
+\textbf{Project 2} \\
+\lstinputlisting{../src/ch4/prj2.c}
+
+\textbf{Project 3} \\
+\lstinputlisting{../src/ch4/prj3.c}
+
+\textbf{Project 4} \\
+\lstinputlisting{../src/ch4/prj4.c}
+
+\textbf{Project 5} \\
+\lstinputlisting{../src/ch4/prj5.c}
+
+\textbf{Project 6} \\
+\lstinputlisting{../src/ch4/prj6.c}
+
+
+
+\end{document}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
